@@ -1,22 +1,32 @@
 <script >
 
 import Header from './components/Header.vue'
-import PortfolioItem from './components/PortfolioItem.vue'
+import SectionHero from './components/SectionHero.vue'
 import SocialLink from './components/SocialLink.vue'
+import Footer from './components/Footer.vue'
+import SectionMeteo from './components/SectionMeteo.vue'
+import ButtonLocation from './components/ButtonLocation.vue'
 
 
+/* qui stiamo importando il nostro file json */
 import contentsData from './assets/contents.json'
 
+/* questo lo scriviamo sennò il nostro file json non viene valorizzato */
 export default {
   data() {
     return {
       contents: contentsData,
     };
   },
+
+/* definisco qui tutti i componenti che vorrei utilizzare */
   components: {
     Header,
-    PortfolioItem,
     SocialLink,
+    Footer,
+    SectionHero,
+    SectionMeteo,
+    ButtonLocation,
   },
 };
 
@@ -24,17 +34,10 @@ export default {
 
 <template>
   <main>
-    <Header />
-
-    <div id="works" class="row">
-      <div class="col-12 col-md-6" v-for="work in contents.works" :key="work.id">
-         <PortfolioItem 
-          :title="work.title"
-          :abstract="work.description"
-          :imageUrl="work.image_thumbnail"
-        />
-      </div>
-    </div>
+    <Header/> 
+    <SectionHero/>
+    <SectionMeteo/>
+    <ButtonLocation/>
 
     <div id="social-links" class="row">
       <ul>
@@ -51,13 +54,13 @@ export default {
 </template>
 
 <style scoped>
+
 header {
   line-height: 1.5;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+#social-links {
+  background-color: #E3F6F5;
 }
 
 @media (min-width: 1024px) {

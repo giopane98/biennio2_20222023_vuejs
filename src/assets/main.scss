@@ -1,3 +1,8 @@
+$primary-color: #2C698D;
+$secondary-color: #E3F6F5;
+$font-family: 'Raleway', sans-serif;
+
+/* import serve per includere dentro un css un altro css */
 @import './base.css';
 @import 'bootstrap';
 
@@ -5,14 +10,54 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
+  font-family: $font-family;
 }
+
+h1 {
+  color: $primary-color;
+}
+
+#circle {
+  background-color: $primary-color;
+}
+
+#small {
+  background-color: $secondary-color;
+}
+
+
+ul#weather li {
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  text-align: center;
+  img.icon {
+    width: 10%;
+  }
+  .date {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .text {
+    font-weight: bold;
+  }
+}
+
+#series2 {
+  color: rgb(28, 255, 130);
+}
+
+
+
+
+
 
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: $primary-color;
   }
 }
 
@@ -23,8 +68,7 @@
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     padding: 0 2rem;
   }
 }

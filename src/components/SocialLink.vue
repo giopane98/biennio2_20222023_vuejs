@@ -7,6 +7,7 @@
 </script>
 
 <template>
+ 
   <li><a :href="url">{{ name }}</a></li>
 </template>
 
