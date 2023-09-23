@@ -24,7 +24,6 @@
   }
 
 @media (max-width: 575.98px) { 
-
   .image {
     width: 110%;
   }

@@ -4,8 +4,11 @@ import Header from './components/Header.vue'
 import SectionHero from './components/SectionHero.vue'
 import SocialLink from './components/SocialLink.vue'
 import Footer from './components/Footer.vue'
+import CircleMeteo from './components/CircleMeteo.vue'
 import SectionMeteo from './components/SectionMeteo.vue'
 import ButtonLocation from './components/ButtonLocation.vue'
+import HourlyWeather from './components/HourlyWeather.vue'
+
 
 
 /* qui stiamo importando il nostro file json */
@@ -16,7 +19,31 @@ export default {
   data() {
     return {
       contents: contentsData,
+      meteoData: null,
     };
+  },
+
+methods:{
+  loadData  (lat, lng) {
+    const url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&lat=${lat}&lon=${lng}&appid=ca0bc81789a77b485742ed7b77c9a1b9&units=metric`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        // salvo dentro meteoData quello che ho ricevuto dell'API in oggetto javascript
+        this.meteoData = data;
+        console.log(this.meteoData);
+      });
+    
+  }
+},
+  // una volta caricata la pagina chiedi la posizione e poi richiama loadData
+ beforeMount () {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position)
+      let lat = position.coords.latitude;
+      let lng = position.coords.longitude;
+      this.loadData(lat, lng)
+    });
   },
 
 /* definisco qui tutti i componenti che vorrei utilizzare */
@@ -25,10 +52,13 @@ export default {
     SocialLink,
     Footer,
     SectionHero,
+    CircleMeteo,
     SectionMeteo,
     ButtonLocation,
+    HourlyWeather,
   },
 };
+
 
 </script> 
 
@@ -36,16 +66,30 @@ export default {
   <main>
     <Header/> 
     <SectionHero/>
-    <SectionMeteo/>
+    
+    <!-- v-if= significa CircleMeteo mostrarlo solo quando sarà valorizzato -->
+    <CircleMeteo
+      v-if="meteoData"
+      :data="meteoData"
+    />
     <ButtonLocation/>
 
-    <div id="social-links" class="row">
+    <SectionMeteo/>
+
+    <HourlyWeather
+      v-if="meteoData"
+      v-for="data in meteoData.list"
+      :data="data"
+    />
+
+
+    <div id="social-links" class="row text-center">
       <ul>
         <li v-for="link in contents.social_links" :key="link.id">
           <SocialLink 
             :id="link.id"
-            :name="link.name"
             :url="link.url"
+            :icon_svg="link.icon_svg"
           />
         </li>
       </ul>
@@ -59,9 +103,15 @@ header {
   line-height: 1.5;
 }
 
-#social-links {
-  background-color: #E3F6F5;
+ul {
+  list-style-type: none;
 }
+
+#social-links {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 
 @media (min-width: 1024px) {
   header {
@@ -69,15 +119,11 @@ header {
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+}
+@media (max-width: 575.98px)  { 
+    
+  #social-links {
+    margin-bottom: 2%;
   }
 }
 </style>

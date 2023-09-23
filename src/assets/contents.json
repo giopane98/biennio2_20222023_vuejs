@@ -2,53 +2,29 @@
   "social_links": [
     {
       "id": 1,
-      "name": "facebook",
-      "url": "https://www.facebook.com"
+      "name": "google",
+      "url": "https://www.3bmeteo.com/",
+      "icon_svg": "images/google.svg"
     },
+
+
     {
       "id": 2,
-      "name": "twitter",
-      "url": "https://www.twitter.com"
+      "name": "facebook",
+      "url": "https://www.facebook.com/3bmeteo",
+      "icon_svg": "images/facebook.svg"
     },
     {
       "id": 3,
-      "name": "instagram",
-      "url": "https://www.instagram.com"
+      "name": "twitter",
+      "url": "https://twitter.com/3bmeteo",
+      "icon_svg": "images/twitter.svg"
     },
     {
       "id": 4,
-      "name": "linkedin",
-      "url": "https://www.linkedin.com"
-    }
-  ],
-
-  "works": [
-    {
-      "id": 1,
-      "title": "Work 1",
-      "description": "This is a sample work",
-      "image_thumbnail": "https://source.unsplash.com/random/200×300/?sea",
-      "image_detail": "https://picsum.photos/1024/768",
-      "client": "Client 1",
-      "url": "https://www.google.com"
-    },
-    {
-      "id": 2,
-      "title": "Work 2",
-      "description": "This is the second work",
-      "image_thumbnail": "https://source.unsplash.com/random/200×300/?animal",
-      "image_detail": "https://picsum.photos/1024/768",
-      "client": "Client 1",
-      "url": "https://www.google.com"
-    },
-    {
-      "id": 3,
-      "title": "Work 3",
-      "description": "This is the third work",
-      "image_thumbnail": "https://source.unsplash.com/random/200×300/?fruit",
-      "image_detail": "https://picsum.photos/1024/768",
-      "client": "Client 1",
-      "url": "https://www.google.com"
+      "name": "instagram",
+      "url": "https://www.instagram.com/3bmeteo/",
+      "icon_svg": "images/instagram.svg"
     }
   ]
 }
