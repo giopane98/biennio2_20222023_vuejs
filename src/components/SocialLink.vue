@@ -1,7 +1,5 @@
 <script setup>
   defineProps({
-    id: Number,
-    name: String,
     url: String,
     icon_svg: String,
   })

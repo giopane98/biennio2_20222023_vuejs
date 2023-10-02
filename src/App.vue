@@ -3,7 +3,6 @@
 import Header from './components/Header.vue'
 import SectionHero from './components/SectionHero.vue'
 import SocialLink from './components/SocialLink.vue'
-import Footer from './components/Footer.vue'
 import CircleMeteo from './components/CircleMeteo.vue'
 import SectionMeteo from './components/SectionMeteo.vue'
 import ButtonLocation from './components/ButtonLocation.vue'
@@ -50,7 +49,6 @@ methods:{
   components: {
     Header,
     SocialLink,
-    Footer,
     SectionHero,
     CircleMeteo,
     SectionMeteo,
@@ -87,7 +85,6 @@ methods:{
       <ul>
         <li v-for="link in contents.social_links" :key="link.id">
           <SocialLink 
-            :id="link.id"
             :url="link.url"
             :icon_svg="link.icon_svg"
           />

@@ -61,7 +61,7 @@ a {
   width: 250px;
 }
 #border {
-  height: px;
+  height: 60px;
   width: 250px;
   top: -44px;
   left: 22px;
